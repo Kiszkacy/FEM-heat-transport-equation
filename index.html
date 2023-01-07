@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script src="src/script.js" defer></script>
+	<script src="src/solver.js" defer></script>
+	<script src="src/graph.js" defer></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+	<link rel="stylesheet" href="style.css">
+	<title>FEM - heat transport equation</title>
+</head>
+<body>
+	<main class="page-container">
+		<div class="canvas-container">
+			<canvas id="graph-plot">
+
+			</canvas>
+		</div>
+
+		<form action="">
+			<div class="form-content">
+				<input type="text" id="point-count" placeholder="number of points">
+				<div class="line"></div>
+			</div>
+		</form>
+		<button id="calc-button">CALCULATE</button>
+	</main>
+</body>
+</html>
