@@ -1,4 +1,6 @@
-
+::placeholder {
+    color: #BBBBBB;
+}
 
 body {
     font-family: "Baskerville", serif;
@@ -14,8 +16,8 @@ body {
 }
 
 .canvas-container {
-    width: 60vw;
-    height: 70vh;
+    width: 70vw;
+    height: 60vh;
 }
 
 #graph-plot {
@@ -24,18 +26,23 @@ body {
 }
 
 form {
-
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
 }
 
 .form-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    gap: 6px;
 }
 
 .form-content label {
-
+    font-style: italic;
 }
 
 .form-content input {
@@ -50,13 +57,6 @@ form {
 
 .form-content input:focus {
     outline: none;
-}
-
-.line {
-    height: 1px;
-    width: 120%;
-    margin-top: 24px;
-    background-color: #AAAAAA;
 }
 
 #calc-button {
@@ -75,4 +75,39 @@ form {
     background-color: #5bb0e0;
     transition: transform 0.3s, background-color 0.3s;
     cursor: pointer;
+}
+
+.line {
+    height: 1px;
+    width: 25%;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    background-color: #AAAAAA;
+}
+
+a {
+    font-style: italic;
+    font-weight: bold;
+}
+
+a:hover {
+    font-style: italic;
+    font-weight: bold;
+    /*text-decoration: none;*/
+    color: #7ec8f0;
+}
+
+@media (max-height: 780px) {
+    .canvas-container {
+        width: 70vw;
+        height: 50vh;
+    }
+
+    .form-content input {
+        font-size: 1.2em;
+    }
+
+    #calc-button {
+        font-size: 1.2em;
+    }
 }
