@@ -15,18 +15,22 @@
 <body>
 	<main class="page-container">
 		<div class="canvas-container">
-			<canvas id="graph-plot">
-
-			</canvas>
+			<canvas id="graph-plot"></canvas>
 		</div>
 
 		<form action="">
 			<div class="form-content">
-				<input type="text" id="point-count" placeholder="number of points">
-				<div class="line"></div>
+				<label for="element-count">number of elements</label>
+				<input type="text" id="element-count" placeholder="e.g. 25">
+			</div>
+			<div class="form-content">
+				<label for="point-count">number of points to plot</label>
+				<input type="text" id="point-count" placeholder="e.g. 100">
 			</div>
 		</form>
 		<button id="calc-button">CALCULATE</button>
+		<div class="line"></div>
+		<a href="https://github.com/Kiszkacy/FEM-heat-transport-equation/blob/main/resources/doc.pdf">weak formulation</a>
 	</main>
 </body>
 </html>
