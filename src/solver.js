@@ -1,6 +1,7 @@
 
 function Solver(n) {
     this.n = n;
+    this.precision = 11;
 
     // return ith-point
     this.x = function(i) {
@@ -40,13 +41,11 @@ function Solver(n) {
     // gauss elimination | not mine implementation
     this.gaussElimination = function(matrix) {
         for (let i = 0; i < this.n; i++) {
-            if (matrix[i][i] === 0) {
+            if (Math.abs(matrix[i][i]) <= 10 ** -this.precision) {
                 let c = 1;
                 while ((i + c) < this.n && matrix[i + c][i] === 0) c++;
                 if ((i + c) === this.n) break;
-                for (let j = i, k = 0; k <= this.n; k++) {
-                    [matrix[j][k], matrix[j+c][k]] = [matrix[j+c][k], matrix[j][k]];
-                }
+                for (let j = i, k = 0; k <= this.n; k++) [matrix[j][k], matrix[j+c][k]] = [matrix[j+c][k], matrix[j][k]];
             }
 
             for (let j = 0; j < this.n; j++) {
@@ -60,11 +59,10 @@ function Solver(n) {
     // main func
     this.solve = function() {
         // create matrix and fill it
-        const matrix = Array(this.n).fill(null).map(() => Array(this.n+1).fill(0));
+        let matrix = Array(this.n).fill(null).map(() => Array(this.n+1).fill(0));
         for(let i = 0; i < this.n; i++)
             for(let j = 0; j < this.n; j++) matrix[i][j] = this.B(j, i);
         for(let i = 0; i < this.n; i++) matrix[i][this.n] = this.L(i);
-
 
         // dirichlet boundary zeros
         for(let i = 0; i < this.n; i++) {
@@ -73,6 +71,9 @@ function Solver(n) {
         }
         matrix[this.n-1][this.n-1] = 1;
         matrix[this.n-1][this.n] = 0;
+
+        // float precision fix
+        matrix = matrix.map(item => item.map(elem => +elem.toFixed(this.precision)))
 
         // solve
         this.gaussElimination(matrix);

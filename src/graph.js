@@ -2,7 +2,7 @@
 let graph = null;
 
 function createChart(data, elem) {
-    if (graph) graph.destroy();
+    if (graph) graph.destroy(); // redraw
     let chart = new Chart(elem, {
         type: "line",
         data: {
